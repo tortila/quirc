@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Models\ChannelConnection.cs" />
+    <Compile Include="ViewModels\ChannelConnectionViewModel.cs" />
     <Compile Include="Connector.cs" />
     <Compile Include="Content\LoremIpsum.xaml.cs">
       <DependentUpon>LoremIpsum.xaml</DependentUpon>
@@ -80,9 +82,6 @@
     <Compile Include="Pages\ActiveChatsList.xaml.cs">
       <DependentUpon>ActiveChatsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AuthPage.xaml.cs">
-      <DependentUpon>AuthPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\BasicPage.xaml.cs">
       <DependentUpon>BasicPage.xaml</DependentUpon>
     </Compile>
@@ -94,10 +93,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Page Include="Pages\ActiveChatsList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
