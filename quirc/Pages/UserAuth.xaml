@@ -7,6 +7,9 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <vm:UserAuthViewModel/>
+    </UserControl.DataContext>
 
     <Grid Style="{StaticResource ContentRoot}">
         <Grid.ColumnDefinitions>
@@ -34,7 +37,7 @@
                     </StackPanel>
                 </Expander>
                 <StackPanel Margin="0,20" HorizontalAlignment="Right" Grid.Row="1" >
-                    <Button x:Name="LoginButton" Content="Log in" Width="75"/>
+                    <Button x:Name="LoginButton"  Command="{Binding LoginCommand}" CommandParameter="Sup" Content="Log in" Width="75" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
@@ -58,6 +61,8 @@
                     </StackPanel>
                 </Expander>
             </StackPanel>
+            
         </ScrollViewer>
     </Grid>
+    
 </UserControl>

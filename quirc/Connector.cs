@@ -6,7 +6,7 @@ using ChatSharp;
 
 namespace quirc
 {
-    class Connector : IConnector
+    public class Connector : IConnector
     {
         public IrcClient Client;
         public IrcUser User;

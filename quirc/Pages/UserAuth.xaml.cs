@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using quirc.Models;
+using FirstFloor.ModernUI.Presentation;
+using quirc.ViewModels;
 
 namespace quirc.Pages
 {
@@ -25,5 +26,8 @@ namespace quirc.Pages
         {
             InitializeComponent();
         }
+
+
     }
+
 }

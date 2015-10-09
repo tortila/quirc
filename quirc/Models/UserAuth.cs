@@ -1,23 +1,26 @@
-﻿namespace quirc.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace quirc.Models
 {
-    public class ChannelConnection
+    public class UserAuth
     {
-
-        public ChannelConnection()
+        public UserAuth(string u, string c, string s, string p, string up)
         {
-            this.Username = "oliwia-kodzi";
-            this.Channel = "#o";
-            this.Server = "irc.mizure.net";
-            this.Port = "6667";
-            this.UserPassword = "";
+            ConnectionData = new CompositeType(u, c, s, p, up);
+            Console.WriteLine("User auth created: " + u + c + p + up);
         }
-
         public string Username { get; set; }
         public string Channel { get; set; }
         public string Server { get; set; }
         public string Port { get; set; }
         public string UserPassword { get; set; }
 
+        public CompositeType ConnectionData;
+        
         public class CompositeType
         {
             public CompositeType() { }
@@ -36,6 +39,5 @@
             public string Port { get; set; }
             public string UserPassword { get; set; }
         }
-
     }
 }
