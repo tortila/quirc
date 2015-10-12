@@ -60,8 +60,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\UserAuth.cs" />
-    <Compile Include="ViewModels\UserAuthViewModel.cs" />
     <Page Include="Content\LoremIpsum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -71,7 +69,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Models\ChannelConnection.cs" />
-    <Compile Include="ViewModels\ActiveChatsListViewModel.cs" />
     <Compile Include="ViewModels\ChannelConnectionViewModel.cs" />
     <Compile Include="Connector.cs" />
     <Compile Include="Content\LoremIpsum.xaml.cs">
