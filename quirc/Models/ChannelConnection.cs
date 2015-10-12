@@ -4,18 +4,13 @@ namespace quirc.Models
 {
     public class ChannelConnection
     {
-        public Connector ChannelConnector;
-
-        public ChannelConnection()
-        {
-            //this.ChannelConnector = new Connector();
-        }
-
+        
         public string Username { get; set; }
         public string Channel { get; set; }
         public string Server { get; set; }
         public string Port { get; set; }
         public string UserPassword { get; set; }
+        public Connector ChannelConnector { get; set; }
 
     }
 }

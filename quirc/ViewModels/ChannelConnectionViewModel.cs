@@ -1,16 +1,26 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using FirstFloor.ModernUI.Presentation;
 using quirc.Models;
+using SimpleMvvmToolkit;
 
 namespace quirc.ViewModels
 {
     public class ChannelConnectionViewModel
     {
         public ChannelConnection Connection { get; set; }
-        public DisplayMessageDelegate Dmd;
+        public DisplayMessageDelegate Dmd { get; set; }
+        //public event EventHandler<NotificationEventArgs<string>> MessageArrived;
 
         public ChannelConnectionViewModel()
         {
             this.Connection = new ChannelConnection();
+            LoginCommand = new RelayCommand(param => LoginExecute(), param => CanExecuteLoginCommand);
+            this.Username = "oliwia-testuje";
+            this.Channel = "#o";
+            this.Server = "irc.mizure.net";
+            this.Port = "6667";
         }
 
 
@@ -59,10 +69,36 @@ namespace quirc.ViewModels
             Connection.Server = this.Server;
             Connection.Port = this.Port;
 
+            Console.WriteLine("Starting connection: " + Username + Channel + "/" + Server + ":" + Port);
+
             Connection.ChannelConnector = new Connector(Dmd);
             Connection.ChannelConnector.Connect(Username, Channel, Server, Port);
             Connection.ChannelConnector.ManageMessages();
         }
 
+        public ICommand LoginCommand { get; set; }
+
+        private bool FieldsNotEmpty
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Server) && !string.IsNullOrEmpty(Channel);
+            }
+        }
+
+        private bool CanExecuteLoginCommand
+        {
+            get { return FieldsNotEmpty; }
+        }
+
+        public void LoginExecute()
+        {
+            this.StartConnection();
+        }
+
+        public void ShowMessage(object obj)
+        {
+            MessageBox.Show(obj.ToString());
+        }
     }
 }
