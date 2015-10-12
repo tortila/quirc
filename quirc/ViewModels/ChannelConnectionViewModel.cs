@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Input;
 using FirstFloor.ModernUI.Presentation;
 using quirc.Models;
-using SimpleMvvmToolkit;
 
 namespace quirc.ViewModels
 {
@@ -11,7 +10,6 @@ namespace quirc.ViewModels
     {
         public ChannelConnection Connection { get; set; }
         public DisplayMessageDelegate Dmd { get; set; }
-        //public event EventHandler<NotificationEventArgs<string>> MessageArrived;
 
         public ChannelConnectionViewModel()
         {
