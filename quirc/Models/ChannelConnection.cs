@@ -1,15 +1,14 @@
-﻿namespace quirc.Models
+﻿using quirc.Pages;
+
+namespace quirc.Models
 {
     public class ChannelConnection
     {
+        public Connector ChannelConnector;
 
         public ChannelConnection()
         {
-            this.Username = "oliwia-kodzi";
-            this.Channel = "#o";
-            this.Server = "irc.mizure.net";
-            this.Port = "6667";
-            this.UserPassword = "";
+            //this.ChannelConnector = new Connector();
         }
 
         public string Username { get; set; }

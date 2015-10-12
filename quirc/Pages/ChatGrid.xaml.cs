@@ -11,13 +11,12 @@ namespace quirc.Pages
     /// </summary>
     public partial class ChatGrid : UserControl
     {
-        private readonly Connector _backend;
-        ChannelConnectionViewModel _viewModel = new ChannelConnectionViewModel();
+
         public ChatGrid()
         {
-            _backend = new Connector(this.DisplayMessage);
             InitializeComponent();
-            base.DataContext = _viewModel;
+            var vm = (ChannelConnectionViewModel)this.DataContext;
+            vm.Dmd = this.DisplayMessage;
         }
 
         public void DisplayMessage(CompositeType composite)
@@ -35,7 +34,8 @@ namespace quirc.Pages
         private void ChatInput_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key != Key.Return && e.Key != Key.Enter) return;
-            _backend.SendMessage(ChatInput.Text);
+            var vm = (ChannelConnectionViewModel)this.DataContext;
+            vm.ConnectorSendMessage(ChatInput.Text);
             ChatInput.Clear();
         }
     }

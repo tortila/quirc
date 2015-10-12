@@ -1,15 +1,18 @@
-﻿using quirc.Models;
+﻿using System;
+using quirc.Models;
 
 namespace quirc.ViewModels
 {
     public class ChannelConnectionViewModel
     {
         public ChannelConnection Connection { get; set; }
+        public DisplayMessageDelegate Dmd;
 
         public ChannelConnectionViewModel()
         {
             this.Connection = new ChannelConnection();
         }
+
 
         public string Username
         {
@@ -41,9 +44,25 @@ namespace quirc.ViewModels
             set { Connection.Port = value; }
         }
 
-        public string ChannelConnectionInfo()
+        public void ConnectorSendMessage(string text)
         {
-            return "Connected as " + Connection.Username + " to " + Connection.Channel; 
+            if (Connection.ChannelConnector != null)
+            {
+                Connection.ChannelConnector.SendMessage(text);
+            }
         }
+
+        public void StartConnection()
+        {
+            Connection.Username = this.Username;
+            Connection.Channel = this.Channel;
+            Connection.Server = this.Server;
+            Connection.Port = this.Port;
+
+            Connection.ChannelConnector = new Connector(Dmd);
+            Connection.ChannelConnector.Connect(Username, Channel, Server, Port);
+            Connection.ChannelConnector.ManageMessages();
+        }
+
     }
 }
