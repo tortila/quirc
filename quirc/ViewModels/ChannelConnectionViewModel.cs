@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using FirstFloor.ModernUI.Presentation;
 using quirc.Models;
 
@@ -48,6 +49,7 @@ namespace quirc.ViewModels
             this.ChannelConnector = new Connector(Dmd);
             this.ChannelConnector.Connect(Username, Channel, Server, Port);
             this.ChannelConnector.ManageMessages();
+
         }
 
         public ICommand LoginCommand { get; set; }
@@ -67,11 +69,8 @@ namespace quirc.ViewModels
 
         public void LoginExecute()
         {
+            //var navigationService = NavigationService.GetNavigationService(this);
         }
 
-        public void ShowMessage(object obj)
-        {
-            MessageBox.Show(obj.ToString());
-        }
     }
 }

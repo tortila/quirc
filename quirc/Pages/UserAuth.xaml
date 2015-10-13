@@ -36,7 +36,7 @@
                     </StackPanel>
                 </Expander>
                 <StackPanel Margin="0,20" HorizontalAlignment="Right" Grid.Row="1" >
-                    <Button x:Name="LoginButton" Content="Log in" Command="{Binding LoginCommand}" Width="75"/>
+                    <Button x:Name="LoginButton" Content="Log in" Command="NavigationCommands.GoToPage" CommandParameter="/Pages/ActiveChatsList.xaml" Width="75"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

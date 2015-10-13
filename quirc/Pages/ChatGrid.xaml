@@ -13,15 +13,13 @@
     <Grid Style="{StaticResource ContentRoot}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="35" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="{Binding Username}"/>
-            <ScrollViewer Grid.Row="1">
+            <ScrollViewer Grid.Row="0">
                 <TextBox Height="Auto" HorizontalAlignment="Stretch" Margin="6,6,6,6" Name="ChatHistory" VerticalAlignment="Stretch" Width="Auto" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap" />
             </ScrollViewer>
-            <TextBox Height="23" HorizontalAlignment="Stretch" Margin="6,6,6,6" Name="ChatInput" VerticalAlignment="Stretch" Width="Auto" Grid.Row="2" KeyDown="ChatInput_OnKeyDown"/>
+            <TextBox Height="23" HorizontalAlignment="Stretch" Margin="6,6,6,6" Name="ChatInput" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" KeyDown="ChatInput_OnKeyDown"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -15,6 +15,12 @@ namespace quirc
             Client.ConnectionComplete += (s, e) =>
             {
                 Client.JoinChannel(c);
+
+            };
+            Client.MOTDRecieved += (s, e) =>
+            {
+                this.DisplayMessage(new CompositeType("MOTD", e.MOTD));
+
             };
             Client.ConnectAsync();
         }
