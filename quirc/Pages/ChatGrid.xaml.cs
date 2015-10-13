@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Input;
 using quirc.ViewModels;
@@ -17,6 +18,7 @@ namespace quirc.Pages
             InitializeComponent();
             vm = (ChannelConnectionViewModel)this.DataContext;
             vm.Dmd = this.DisplayMessage;
+            vm.StartConnection();
         }
 
         public void DisplayMessage(CompositeType composite)

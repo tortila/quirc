@@ -39,8 +39,7 @@ namespace quirc
             }
         }
 
-        private DisplayMessageDelegate _displayMessageDelegate = null;
-
+        DisplayMessageDelegate _displayMessageDelegate = null;
         public void SendMessage(string text)
         {
             this.DisplayMessage(new CompositeType(Client.User.Nick, text));
@@ -49,7 +48,7 @@ namespace quirc
 
         public Connector(DisplayMessageDelegate dmd)
         {
-            _displayMessageDelegate = dmd;
+            _displayMessageDelegate = new DisplayMessageDelegate(dmd);
         }
     }
 }
